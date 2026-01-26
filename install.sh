@@ -70,7 +70,9 @@ done
 echo "Host is set to $host_name"
 
 echo "-----"
+
 ###############################################################################
+# If creating a new host
 
 if [ "$use_new_host" == true ]; then
   mkdir -p ./nix-config/hosts/"$host_name"
@@ -105,51 +107,54 @@ if [ "$use_new_host" == true ]; then
   sudo nixos-generate-config --show-hardware-config >./nix-config/hosts/"$host_name"/hardware.nix
   git add ./nix-config/hosts/"$host_name"/
 
-else
-  read -p "Do you want to do an express install [use defaults]? For a new host do not use express install!" -n 1 -r
+fi
+
+###############################################################################
+# Ask if user wants to do an express install
+
+read -p "Do you want to do an express install [use defaults]? For a new host do not use express install!" -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+
+  read -p "Do you want to generate a hardware config? (First time install typically)" -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo ""
+    sudo nixos-generate-config --show-hardware-config >./nix-config/hosts/"$host_name"/hardware.nix
+  fi
   echo ""
-  if [[ $REPLY =~ ^[Nn]$ ]]; then
 
-    read -p "Do you want to generate a hardware config? (First time install typically)" -n 1 -r
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      echo ""
-      sudo nixos-generate-config --show-hardware-config >./nix-config/hosts/"$host_name"/hardware.nix
-    fi
-    echo ""
+  read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
+  if [ ! -z "$user_name_response" ]; then
+    user_name=$user_name_response
+  fi
+  echo ""
 
-    read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
-    if [ ! -z "$user_name_response" ]; then
-      user_name=$user_name_response
-    fi
-    echo ""
+  if [ "$current_user_name" != "$user_name" ]; then
+    echo "This will create a hashedPassword for the new user in the options file."
+    while true; do
+      echo
+      read -rp "Enter New User Password: " new_pass
+      echo
+      read -rp "Enter New User Password Again: " new_pass2
+      if [ "$new_pass" == "$new_pass2" ]; then
+        echo "Passwords Match. Setting password."
+        user_password=$(mkpasswd -m sha-512 "$new_pass")
+        escaped_user_password=$(echo "$user_password" | sed 's/\//\\\//g')
+        sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_user_password\"#" ./nix-config/users/users.nix
+        break
+      fi
+    done
 
-    if [ "$current_user_name" != "$user_name" ]; then
-      echo "This will create a hashedPassword for the new user in the options file."
-      while true; do
-        echo
-        read -rp "Enter New User Password: " new_pass
-        echo
-        read -rp "Enter New User Password Again: " new_pass2
-        if [ "$new_pass" == "$new_pass2" ]; then
-          echo "Passwords Match. Setting password."
-          user_password=$(mkpasswd -m sha-512 "$new_pass")
-          escaped_user_password=$(echo "$user_password" | sed 's/\//\\\//g')
-          sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_user_password\"#" ./nix-config/users/users.nix
-          break
-        fi
-      done
-
-      sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./nix-config/hosts/"$host_name"/options.nix
-      sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./nix-config/hosts/"$host_name"/options.nix
-
-    fi
-
-  else
-    # express install stuff here
-    echo "-----"
-    echo "Doing express install"
+    sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./nix-config/hosts/"$host_name"/options.nix
+    sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./nix-config/hosts/"$host_name"/options.nix
 
   fi
+
+else
+  # express install stuff here
+  echo "-----"
+  echo "Doing express install"
+
 fi
 
 ###############################################################################
