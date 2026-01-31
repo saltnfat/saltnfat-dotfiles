@@ -112,9 +112,10 @@ in
 
       general = {
         layout = "dwindle";
-        gaps_in = 6;
-        gaps_out = 8;
-        border_size = 2;
+        gaps_in = 12;
+        #gaps_out = 11;
+        gaps_out = 20;
+        border_size = 0;
         resize_on_border = true;
         "col.active_border" =
           "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
@@ -147,7 +148,7 @@ in
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 5;
         blur = {
           enabled = true;
           size = 5;

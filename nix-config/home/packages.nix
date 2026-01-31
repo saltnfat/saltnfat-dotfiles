@@ -74,7 +74,6 @@ in
       docker
       mysql-workbench
       delta
-      gnome-boxes
 
       # zsh related
       zsh

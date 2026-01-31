@@ -27,6 +27,7 @@ in
         "tag +im, match:class ^(teams-for-linux)$"
         "tag +games, match:class ^(gamescope)$"
         "tag +games, match:class ^(steam_app_d+)$"
+        "tag +games, match:class ^(com.libretro.RetroArch|[Rr]etro[Aa]rch)$"
         "tag +gamestore, match:class ^([Ss]team)$"
         "tag +gamestore, match:title ^([Ll]utris)$"
         "tag +gamestore, match:class ^(com.heroicgameslauncher.hgl)$"

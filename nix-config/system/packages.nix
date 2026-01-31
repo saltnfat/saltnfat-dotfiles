@@ -85,6 +85,8 @@
     ytmdl # Tool For Downloading Audio From YouTube
     sysfsutils # set of utilites built upon sysfs that exposes a system's device tree
     lact # gpu config tool (like msi afterburner)
+    dnsmasq # for libvirt networking
+    qemu_full
 
     # Wayland / Hyprland
     egl-wayland # required for hyprland
