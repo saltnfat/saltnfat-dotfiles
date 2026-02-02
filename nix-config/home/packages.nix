@@ -110,6 +110,7 @@ in
       qbittorrent
       tribler
       clamtk
+      element-desktop
 
       # fonts
       cherry
