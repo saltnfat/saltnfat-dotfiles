@@ -71,34 +71,16 @@ in
         "opacity 0.9 0.8, match:class ^(seahorse)$ # gnome-keyring gui"
         "no_blur on, fullscreen on, match:tag games*"
 
-      ];
-
-      windowrulev2 = [
         # qs-wallpapers styling via compositor
-        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
-        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
-        "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
-        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
 
-        # qs-vid-wallpapers styling via compositor
-        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
-        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
-        "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
-        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+        "border_size 0, no_shadow on, no_blur on, rounding 12, match:class ^(org\.qt-project\.qml)$, match:title ^(Wallpapers)$"
+        "border_size 0, no_shadow on, no_blur on, rounding 12, match:class ^(org\.qt-project\.qml)$, match:title ^(Video Wallpapers)$"
+        "border_size 0, rounding 20, opacity 1.0 1.0, match:class ^(org\.qt-project\.qml)$, match:title ^(qs-wlogout)$"
+        "border_size 0, no_shadow on, rounding 12, match:class ^(org\.qt-project\.qml)$, match:title ^(Cheatsheets Viewer)$"
+        "border_size 0, no_shadow on, rounding 12, match:class ^(org\.qt-project\.qml)$, match:title ^(Documentation Viewer)$"
 
-        # qs-wlogout styling via compositor - power menu overlay
-        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
-        "rounding 20, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
-        "opacity 1.0 1.0, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
-
-        # qs-docs / qs-cheatsheets overlay windows
-        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Cheatsheets Viewer)$"
-        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Cheatsheets Viewer)$"
-        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Cheatsheets Viewer)$"
-        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Documentation Viewer)$"
-        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Documentation Viewer)$"
-        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Documentation Viewer)$"
       ];
+
     };
   };
 }

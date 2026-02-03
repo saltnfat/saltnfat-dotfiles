@@ -125,8 +125,8 @@
         # explain lsp error or debug messages
         wtf-nvim
       ];
-      extraConfig = '''';
-      extraLuaConfig = ''
+      extraConfig = "";
+      initLua = ''
         ${builtins.readFile ./nvim/keymaps.lua}
         ${builtins.readFile ./nvim/options.lua}
         ${builtins.readFile ./nvim/plugins/cmp.lua}
