@@ -87,6 +87,8 @@
     lact # gpu config tool (like msi afterburner)
     dnsmasq # for libvirt networking
     qemu_full
+    sops
+    ncdu # disk usage analyzer tui
 
     # Wayland / Hyprland
     egl-wayland # required for hyprland

@@ -1,4 +1,9 @@
-{ host, ... }:
+{
+  host,
+  nix,
+  config,
+  ...
+}:
 let
   inherit (import ../hosts/${host}/options.nix) gitUsername gitEmail;
 in

@@ -30,29 +30,6 @@ in
     ./nix-config/users/users.nix
   ];
 
-  # Enable networking
-  networking = {
-    hostName = "${hostname}"; # Define your hostname
-    networkmanager.enable = true;
-    nat = {
-      enable = true;
-      internalInterfaces = [ "virbr0" ];
-    };
-    firewall = {
-      enable = false;
-      allowedTCPPorts = [
-        8384
-        22000
-        3000
-      ];
-      allowedUDPPorts = [
-        22000
-        21027
-      ];
-      trustedInterfaces = [ "virbr0" ];
-    };
-  };
-
   # Set your time zone
   time.timeZone = "${theTimezone}";
 
@@ -95,6 +72,7 @@ in
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+    #extraOptions = "!include ${config.sops.secrets.access-tokens.path}";
   };
 
   system.stateVersion = "23.11";

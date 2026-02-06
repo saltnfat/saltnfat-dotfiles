@@ -1,13 +1,61 @@
-{ pkgs, config, lib, host, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  host,
+  ...
+}:
 
-let inherit (import ../hosts/${host}/options.nix) syncthing username userHome; in
+let
+  inherit (import ../hosts/${host}/options.nix) syncthing username userHome;
+in
 lib.mkIf (syncthing == true) {
   services = {
     syncthing = {
-    enable = true;
-    user = "${username}";
-    dataDir = "/home/${username}";    # Default folder for new synced folders
-    configDir = "/home/${username}/.config/syncthing";   # Folder for Syncthing's settings and keys
+      enable = true;
+      user = "${username}";
+      dataDir = "/home/${username}"; # Default folder for new synced folders
+      configDir = "/home/${username}/.config/syncthing"; # Folder for Syncthing's settings and keys
+      key = config.sops.secrets."syncthing/key.pem".path;
+      cert = config.sops.secrets."syncthing/cert.pem".path;
+      devices = {
+        "nix-deskstar" = {
+          id = "M4RWYGV-U2V6EJH-LWBWLUD-XVVAXFA-6Y5ADCV-JQHJBWH-G5I5CK5-SZIFJQU";
+        };
+        "nix-lappy" = {
+          id = "3JQ4RL6-E466XZ6-DSX6OUC-PGAXBZV-NQHF6FV-72BUJF6-ULBVTMG-TY7FBQE";
+        };
+      };
+      folders = {
+        "Sync" = {
+          path = "/home/${username}/Sync";
+          devices = [
+            "nix-deskstar"
+            "nix-lappy"
+          ];
+        };
+        "unsec-sync" = {
+          path = "/home/${username}/unsec-sync";
+          devices = [
+            "nix-deskstar"
+            "nix-lappy"
+          ];
+        };
+        "Pictures" = {
+          path = "/home/${username}/Pictures";
+          devices = [
+            "nix-deskstar"
+            "nix-lappy"
+          ];
+        };
+        "Music" = {
+          path = "/home/${username}/Music";
+          devices = [
+            "nix-deskstar"
+            "nix-lappy"
+          ];
+        };
+      };
     };
   };
 
@@ -15,5 +63,5 @@ lib.mkIf (syncthing == true) {
   # 22000 TCP and/or UDP for sync traffic
   # 21027/UDP for discovery
   # source: https://docs.syncthing.net/users/firewall.html
-  # these are opened on the firewall in system.nix
+  # these are opened on the firewall in networking.nix
 }

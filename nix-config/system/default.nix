@@ -30,6 +30,7 @@ in
     ./lact.nix
     ./logitech.nix
     ./maccel.nix
+    ./networking.nix
     ./ntp.nix
     ./nvidia.nix
     ./opengl.nix
@@ -38,6 +39,7 @@ in
     ./power-profiles-daemon.nix
     ./security.nix
     ./services.nix
+    ./sops.nix
     ./stylix.nix
     ./swap.nix
     ./syncthing.nix

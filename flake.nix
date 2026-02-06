@@ -35,6 +35,10 @@
       url = "github:Gnarus-G/maccel";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -42,6 +46,7 @@
       nixpkgs,
       home-manager,
       lanzaboote,
+      sops-nix,
       ...
     }:
     let
@@ -69,6 +74,7 @@
           modules = [
             ./system.nix
             lanzaboote.nixosModules.lanzaboote
+            sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = {
