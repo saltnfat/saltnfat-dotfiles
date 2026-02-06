@@ -18,42 +18,44 @@ lib.mkIf (syncthing == true) {
       configDir = "/home/${username}/.config/syncthing"; # Folder for Syncthing's settings and keys
       key = config.sops.secrets."syncthing/key.pem".path;
       cert = config.sops.secrets."syncthing/cert.pem".path;
-      devices = {
-        "nix-deskstar" = {
-          id = "M4RWYGV-U2V6EJH-LWBWLUD-XVVAXFA-6Y5ADCV-JQHJBWH-G5I5CK5-SZIFJQU";
+      settings = {
+        devices = {
+          "nix-deskstar" = {
+            id = "M4RWYGV-U2V6EJH-LWBWLUD-XVVAXFA-6Y5ADCV-JQHJBWH-G5I5CK5-SZIFJQU";
+          };
+          "nix-lappy" = {
+            id = "3JQ4RL6-E466XZ6-DSX6OUC-PGAXBZV-NQHF6FV-72BUJF6-ULBVTMG-TY7FBQE";
+          };
         };
-        "nix-lappy" = {
-          id = "3JQ4RL6-E466XZ6-DSX6OUC-PGAXBZV-NQHF6FV-72BUJF6-ULBVTMG-TY7FBQE";
-        };
-      };
-      folders = {
-        "Sync" = {
-          path = "/home/${username}/Sync";
-          devices = [
-            "nix-deskstar"
-            "nix-lappy"
-          ];
-        };
-        "unsec-sync" = {
-          path = "/home/${username}/unsec-sync";
-          devices = [
-            "nix-deskstar"
-            "nix-lappy"
-          ];
-        };
-        "Pictures" = {
-          path = "/home/${username}/Pictures";
-          devices = [
-            "nix-deskstar"
-            "nix-lappy"
-          ];
-        };
-        "Music" = {
-          path = "/home/${username}/Music";
-          devices = [
-            "nix-deskstar"
-            "nix-lappy"
-          ];
+        folders = {
+          "Sync" = {
+            path = "/home/${username}/Sync";
+            devices = [
+              "nix-deskstar"
+              "nix-lappy"
+            ];
+          };
+          "unsec-sync" = {
+            path = "/home/${username}/unsec-sync";
+            devices = [
+              "nix-deskstar"
+              "nix-lappy"
+            ];
+          };
+          "Pictures" = {
+            path = "/home/${username}/Pictures";
+            devices = [
+              "nix-deskstar"
+              "nix-lappy"
+            ];
+          };
+          "Music" = {
+            path = "/home/${username}/Music";
+            devices = [
+              "nix-deskstar"
+              "nix-lappy"
+            ];
+          };
         };
       };
     };

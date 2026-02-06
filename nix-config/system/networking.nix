@@ -11,6 +11,10 @@ in
   networking = {
     hostName = "${hostname}"; # Define your hostname
     networkmanager.enable = true;
+    hosts = {
+      "192.168.8.165" = [ "nix-lappy" ];
+      "192.168.8.179" = [ "nix-deskstar" ];
+    };
     nat = {
       enable = true;
       internalInterfaces = [ "virbr0" ];

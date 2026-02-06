@@ -1,7 +1,9 @@
 keys:
-  - &primary age1qg60hphuepvj98zyjadll7dmv4kqnde95vfxzu8h9a3gskt239tq2d3hq8
+  - &nix_deskstar age1qg60hphuepvj98zyjadll7dmv4kqnde95vfxzu8h9a3gskt239tq2d3hq8
+  - &nix_lappy age1xfyju4erdxrz5kvsqzwn78djepra9t3zpyu0ry0mua23uptahg0qs2tddh
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
-          - *primary
+          - *nix_deskstar
+          - *nix_lappy
