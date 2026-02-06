@@ -1,6 +1,6 @@
 keys:
   - &nix_deskstar age1qg60hphuepvj98zyjadll7dmv4kqnde95vfxzu8h9a3gskt239tq2d3hq8
-  - &nix_lappy age1xfyju4erdxrz5kvsqzwn78djepra9t3zpyu0ry0mua23uptahg0qs2tddh
+  - &nix_lappy age1fay4ft6a6rcrqvnz9zspk22v7j6wttp8llcsswez89d6xey0u4cq2way9z
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
