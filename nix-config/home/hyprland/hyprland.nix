@@ -85,6 +85,7 @@ in
         kb_options = [
           #"grp:alt_caps_toggle"
           #"caps:super"
+          "ctrl:nocaps"
         ];
         numlock_by_default = true;
         repeat_delay = 300;

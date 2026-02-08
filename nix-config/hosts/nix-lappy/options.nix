@@ -106,7 +106,7 @@ in
   #### Hyprland / Wayland #######
 
   # Choose between noctalia or waybar
-  barChoice = "noctalia";
+  barChoice = "dms";
 
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
@@ -116,7 +116,7 @@ in
   # This does NOT install your browser
   # You need to install it by adding it to the `packages.nix`
   # or as a flatpak
-  browser = "firefox";
+  browser = "zen-beta";
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity
@@ -131,6 +131,7 @@ in
   # Inside the quotes, create a new line for each monitor.
   extraMonitorSettings = "
 
+    monitor = eDP-2, 2880x1800@120.00100, 0x0, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 1.15, sdrsaturation, 0.80, vrr, 3
     ";
 
   # Themes, waybar and animation.
