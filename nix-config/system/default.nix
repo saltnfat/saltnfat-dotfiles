@@ -35,14 +35,14 @@ in
     ./nvidia.nix
     ./opengl.nix
     ./packages.nix
-    ./polkit.nix
-    ./power-profiles-daemon.nix
+    ./quickshell.nix
     ./security.nix
     ./services.nix
     ./sops.nix
     ./stylix.nix
     ./swap.nix
     ./syncthing.nix
+    ./thunar.nix
     ./virtualisation.nix
     ./vm.nix
     ./xorgScale.nix

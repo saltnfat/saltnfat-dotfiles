@@ -59,7 +59,6 @@
     gparted
     kdePackages.partitionmanager
     sbctl # secure boot
-    polkit_gnome
     cmatrix # Matrix movie effect in terminal
     duf # disk usage util
     gpu-screen-recorder # noctalia-shell dep

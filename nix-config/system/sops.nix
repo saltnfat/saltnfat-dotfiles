@@ -1,6 +1,6 @@
 { host, inputs, ... }:
 let
-  inherit (import ../hosts/${host}/options.nix) username flakePath;
+  inherit (import ../hosts/${host}/options.nix) username flakePath hostname;
 in
 {
   imports = [
@@ -13,12 +13,12 @@ in
   #sops.secrets.ssh.general_pub = { };
   #sops.secrets.home_wifi_ssid = { };
   #sops.secrets.home_wifi_pw = { };
-  sops.secrets."syncthing/cert.pem" = {
+  sops.secrets."syncthing/${hostname}/cert.pem" = {
     owner = "${username}";
     mode = "0600";
 
   };
-  sops.secrets."syncthing/key.pem" = {
+  sops.secrets."syncthing/${hostname}/key.pem" = {
     owner = "${username}";
     mode = "0600";
   };

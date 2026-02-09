@@ -94,8 +94,8 @@ in
   secureboot = true;
 
   # NVME ssd acpi power management workaround
-  nvmePowerFix = true;
-  pcieASPMDisable = true;
+  nvmePowerFix = false;
+  pcieASPMDisable = false;
 
   # For burn in protection on OLED
   oled = true;
