@@ -7,17 +7,21 @@
 }:
 
 let
-  inherit (import ../hosts/${host}/options.nix) syncthing username userHome;
+  inherit (import ../hosts/${host}/options.nix) syncthing username hostname;
 in
 lib.mkIf (syncthing == true) {
+  systemd.user.services.syncthing = {
+    wantedBy = lib.mkForce [ "graphical-session.target" ];
+  };
   services = {
     syncthing = {
       enable = true;
+      openDefaultPorts = true;
       user = "${username}";
       dataDir = "/home/${username}"; # Default folder for new synced folders
       configDir = "/home/${username}/.config/syncthing"; # Folder for Syncthing's settings and keys
-      key = config.sops.secrets."syncthing/key.pem".path;
-      cert = config.sops.secrets."syncthing/cert.pem".path;
+      key = config.sops.secrets."syncthing/${hostname}/key.pem".path;
+      cert = config.sops.secrets."syncthing/${hostname}/cert.pem".path;
       settings = {
         devices = {
           "nix-deskstar" = {

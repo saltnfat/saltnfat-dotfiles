@@ -82,7 +82,7 @@
 
     extraCompatPackages = with pkgs; [
       #steamtinkerlaunch # Proton configuration tool
-      # proton-ge-bin (optional)
+      proton-ge-bin
     ];
   };
 
