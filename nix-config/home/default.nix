@@ -21,7 +21,6 @@ in
     # Enable &/ Configure Programs
     ./alacritty.nix
     barModule
-    ./betterlockscreen.nix
     ./firefox.nix
     ./git.nix
     ./gtk.nix

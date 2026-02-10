@@ -18,10 +18,6 @@ _: {
       '';
     };
 
-    pam.services.betterlockscreen = {
-      text = "auth include login";
-    };
-
     pam.services.swaylock = {
       text = "auth include login ";
     };

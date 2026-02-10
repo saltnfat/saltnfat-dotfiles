@@ -92,8 +92,6 @@ in
       inkscape-with-extensions
 
       # other
-      betterlockscreen
-      xscreensaver
       nh
       tldr
       tor-browser
