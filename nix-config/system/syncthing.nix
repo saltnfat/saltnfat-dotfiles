@@ -28,7 +28,7 @@ lib.mkIf (syncthing == true) {
             id = "M4RWYGV-U2V6EJH-LWBWLUD-XVVAXFA-6Y5ADCV-JQHJBWH-G5I5CK5-SZIFJQU";
           };
           "nix-lappy" = {
-            id = "3JQ4RL6-E466XZ6-DSX6OUC-PGAXBZV-NQHF6FV-72BUJF6-ULBVTMG-TY7FBQE";
+            id = "6ITFLW3-ATLKMCV-JILVSXF-HUE6EHU-XRDCVCR-HOH7SM3-4726KUQ-PTWMPAD";
           };
         };
         folders = {
