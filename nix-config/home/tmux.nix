@@ -165,7 +165,7 @@ in
       set -g @catppuccin_menu_selected_style "fg=#{@thm_fg},italics"
       set -g @catppuccin_status_connect_separator "no"
 
-      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
+      #run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
             
     '';
   };

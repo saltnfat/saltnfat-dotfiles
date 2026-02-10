@@ -15,10 +15,10 @@ lib.mkIf (alacritty == true) {
     enable = true;
     settings = {
       general = {
-        import = [
-          "~/.config/alacritty/rice-colors.toml"
-          "~/.config/alacritty/fonts.toml"
-        ];
+        # import = [
+        #   "~/.config/alacritty/rice-colors.toml"
+        #   "~/.config/alacritty/fonts.toml"
+        # ];
         live_config_reload = true;
       };
       cursor = {

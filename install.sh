@@ -158,15 +158,15 @@ else
 fi
 
 ###############################################################################
-echo "-----"
-echo "Symlinking dot (.config and .local) files using GNU Stow"
-[ ! -d ~/.config ] && mkdir -p $XDG_CONFIG_HOME
-[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-[ ! -d ~/.local/share ] && mkdir -p ~/.local/share
-
-cd $PROJECT_DIR/dots && stow -R config -t ~/.config/ -v
-cd $PROJECT_DIR/dots && stow -R local -t ~/.local/ -v
-cd $PROJECT_DIR || exit
+# echo "-----"
+# echo "Symlinking dot (.config and .local) files using GNU Stow"
+# [ ! -d ~/.config ] && mkdir -p $XDG_CONFIG_HOME
+# [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
+# [ ! -d ~/.local/share ] && mkdir -p ~/.local/share
+#
+# cd $PROJECT_DIR/dots && stow -R config -t ~/.config/ -v
+# cd $PROJECT_DIR/dots && stow -R local -t ~/.local/ -v
+# cd $PROJECT_DIR || exit
 
 fc-cache -rf
 
