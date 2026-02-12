@@ -29,28 +29,16 @@ in
 
       # Hyprland
       cliphist
-
-      ## for bspwm rice:
-      dunst
-      bspwm
+      rofi
       dmenu
-      sxhkd
       jq
       ranger
-      picom
       ueberzug
-      rofi
-      tdrop
-      eww
-      jgmenu
-      polybarFull
-      polybar-pulseaudio-control
 
       # audio related
       libmpdclient
       playerctl
       mpd
-      ncmpcpp
       mpc
       pamixer
 
@@ -95,7 +83,6 @@ in
       nh
       tldr
       tor-browser
-      networkmanager_dmenu
       networkmanagerapplet
       thunderbird
       inetutils
@@ -109,6 +96,7 @@ in
       tribler
       clamtk
       element-desktop
+      cryfs
 
       # fonts
       cherry

@@ -22,7 +22,7 @@ let
         options nouveau modeset=0
       ''
     else
-      '''';
+      "";
 
   blacklistedKernelModules = if gpuType == "nvidia" then [ "nouveau" ] else [ ];
 in
@@ -63,7 +63,9 @@ in
   boot.kernelParams = lib.mkMerge [
     (lib.mkIf (nvmePowerFix == true) [ "nvme_core.default_ps_max_latency_us=0" ])
     (lib.mkIf (pcieASPMDisable == true) [ "pcie_aspm=off" ])
-    (lib.mkIf (gpuType == "nvidia") [ "mem_sleep_default=s2idle" ])
+    (lib.mkIf (pcieASPMDisable == true) [ "pcie_port_pm=off" ])
+    #(lib.mkIf (pcieASPMDisable == true) [ "nvme.noacpi=1" ])
+    #(lib.mkIf (gpuType == "nvidia") [ "mem_sleep_default=s2idle" ])
     (lib.mkIf (gpuType == "nvidia") [ "module_blacklist=amdgpu" ])
   ];
 }

@@ -8,7 +8,7 @@ _: {
     neovim.enable = false;
     alacritty.enable = true;
     firefox.enable = false;
-    tmux.enable = true;
+    tmux.enable = false;
     qt = {
       enable = true;
       platform = "qtct";
