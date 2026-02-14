@@ -88,6 +88,7 @@
     qemu_full
     sops
     ncdu # disk usage analyzer tui
+    kdiskmark
 
     # Wayland / Hyprland
     egl-wayland # required for hyprland

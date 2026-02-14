@@ -21,6 +21,7 @@ in
     # Enable &/ Configure Programs
     ./alacritty.nix
     barModule
+    ./fastfetch
     ./firefox.nix
     ./git.nix
     ./gtk.nix
